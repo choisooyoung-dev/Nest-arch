@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Basic Project</title>
+  </head>
+  <body>
+    <h1>BASIC PROJECT</h1>
+    <div class="inputWrap">
+      <div class="nameBox">
+        <p>name</p>
+        <input id="nameText" class="nameValue" type="text" />
+      </div>
+      <div class="emailBox">
+        <p>email</p>
+        <input id="emailText" class="emailValue" type="email" />
+      </div>
+      <div class="passwordBox">
+        <p>password</p>
+        <input id="passwordText" class="passwordValue" type="password" />
+      </div>
+      <button class="registerBtn">SIGN UP</button>
+    </div>
+    <br />
+    <hr />
+    <br />
+    <div class="findWrap">
+      <button class="findAllBtn">FIND ALL USER</button>
+      <div class="allUserBox"></div>
+      <div class="userTableWrap"></div>
+      <div class="emailBox">
+        <p>email</p>
+        <input id="findEmailValue" class="emailValue" type="email" />
+        <button class="findUserBtn">FIND USER</button>
+        <div class="userBox"></div>
+      </div>
+    </div>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
