@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="../public/main.css">
+
+    <title>Document</title>
+  </head>
+  <body>
+    <h2  class="home" >BOARD</h2>
+    <div class="inputContainer">
+      <form class="form">
+        <input class="inputTitle" type="text" placeholder="제목" />
+        <textarea class="inputContent" type="text" placeholder="내용"></textarea>
+        <button class="uploadBtn" type="submit">업로드</button>
+      </form>
+    </div>
+
+    <div class="blank"></div>
+    <div class="postListContainer">
+      <p>게시물</p>
+      <div class="postList">
+        <% for(let i=0; i<data.length; i++){ %>
+          <li id="<%= data[i]._id %>"><%= data[i].title %></li>
+        <% } %>
+      </div>
+    </div>
+  </body>
+  <script>
+    document.addEventListener('DOMContentLoaded', async()=>{
+      const form = document.querySelector('.form');
+      const postList = document.querySelector('.postList');
+
+      form.addEventListener('submit', async (e)=>{
+        e.preventDefault()
+        const title = document.querySelector('.inputTitle').value.trim();
+        const content = document.querySelector('.inputContent').value.trim();
+        if(title.length===0 || content.length===0){
+          alert('값을 입력해 주세욧');
+        }else if(title.length + content.length >= 2){
+          const data = {title, content};
+          await axios.post('/board', data);
+          alert('포스팅 완료');
+        };
+        return window.location.href='/board';
+      })
+
+      postList.addEventListener('click', async (e)=>{
+        const postId = e.target.id;
+        return window.location.href= "/"+ postId; 
+      })
+    });
+  </script>
+
+  </html>

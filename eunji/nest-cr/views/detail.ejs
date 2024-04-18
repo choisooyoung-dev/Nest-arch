@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <title>Document</title>
+  <link rel="stylesheet" href="../public/main.css">
+</head>
+<body>
+  <h2 class="home">BOARD</h2>
+
+  <table class='postDetail' border="1">
+    <tr>
+      <td class="titleTd">제목</td>
+      <td class="titleDetail"><%= data.title %></td>
+    </tr>
+    <tr>
+      <td class="contentTd">내용</td>
+      <td class="contentDetail"><%= data.content %></td>
+    </tr>
+  </table>
+  <script>
+    document.addEventListener('DOMContentLoaded', async()=>{
+      const home = document.querySelector('.home');
+      home.addEventListener('click', ()=>{
+        return window.location.href='/board';
+      });
+    });
+  </script>
+</body>
+</html>
