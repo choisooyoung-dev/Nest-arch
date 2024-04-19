@@ -1,6 +1,6 @@
 import { Body, Controller, Get, Param, Post, Render } from '@nestjs/common';
 import { AppService } from './app.service';
-import { CreateBoardDto } from './board/dto/create-board.dto';
+import { CreateBoardDto } from './posting.dto';
 
 @Controller()
 export class AppController {
@@ -9,7 +9,7 @@ export class AppController {
   ) {}
 
   @Post('board')
-  @Render('index.ejs')
+  @Render('index')
   async create(@Body() createBoardDto: CreateBoardDto){
     const posting = await this.appService.create(createBoardDto);
     return { data: posting };
@@ -17,14 +17,14 @@ export class AppController {
   }
 
   @Get('board')
-  @Render('index.ejs')
+  @Render('index')
   async findAll() {
     const postList = await this.appService.findAll();
     return { data: postList };
   }
 
   @Get(':id')
-  @Render('detail.ejs')
+  @Render('detail')
   async findOne(@Param('id') id: number): Promise<object> {
     const postDetail = await this.appService.findOne(id);
     return {data: postDetail};

@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { CreateBoardDto } from './board/dto/create-board.dto';
-import { MysqlService } from './mysql.service';
+import { CreateBoardDto } from '../src/posting.dto';
+import { MysqlService } from '../config/database.config';
 
 @Injectable()
 export class AppService {
@@ -26,7 +26,6 @@ export class AppService {
       const conn = await this.mysqlService.getConnection();
       const sql = 'SELECT * FROM `board`';
       const [rows, fields] = await conn.execute(sql);
-
       return rows;
     }catch(err){
       console.log(err);
