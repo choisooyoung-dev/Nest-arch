@@ -11,4 +11,10 @@ export class AppController {
   getHello(): object {
     return {};
   }
+
+  @Get('login')
+  @Render('login')
+  login() {
+    return ``;
+  }
 }
