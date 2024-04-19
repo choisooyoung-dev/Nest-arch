@@ -1,1 +1,4 @@
-export class ReqAuthDto {}
+export class ReqAuthDto {
+  email: string;
+  password: string;
+}
