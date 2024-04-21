@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { ConnectionOptions } from 'mysql2';
 
+require('dotenv').config();
 const mysql = require('mysql2/promise');
 const access: ConnectionOptions = {
   host: process.env.DB_HOST,
@@ -27,8 +28,3 @@ export class DbConncetionService {
     return result;
   }
 }
-
-// root;
-// qpqp170310;
-// basic_project;
-// 3306;
