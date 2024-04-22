@@ -5,8 +5,8 @@ import { DbConncetionService } from 'src/db/db.conncetion.service';
 import { DbConncetionModule } from 'src/db/db.conncetion.module';
 
 @Module({
-  imports: [DbConncetionModule],
   controllers: [UserController],
   providers: [UserService, DbConncetionService],
+  exports: [UserModule],
 })
 export class UserModule {}
