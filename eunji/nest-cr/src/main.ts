@@ -1,7 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { AppModule } from './app.module';
-import { join } from 'path';
 import {resolve } from 'path';
 
 
@@ -15,5 +14,3 @@ async function bootstrap() {
   await app.listen(8000);
 }
 bootstrap();
-
-
